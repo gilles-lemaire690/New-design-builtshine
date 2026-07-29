@@ -1,0 +1,16 @@
+:root{
+  --bg:#F7F5F1;
+  --card:#FFFFFF;
+  --line:#E5E1D8;
+  --ink:#1B2E3D;
+  --muted:#6B7A85;
+  --blue:#33749E;
+  --blue-deep:#0F2843;
+  --blue-soft:#EAF1F6;
+  --orange:#C9792F;
+  --whatsapp:#25D366;
+
+  --font-display:'Space Grotesk', sans-serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+}
