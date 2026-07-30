@@ -1,14 +1,18 @@
 :root{
-  --bg:#F7F5F1;
+  --bg:#F7F7F5;
+  --off-white:#F7F7F5;
   --card:#FFFFFF;
-  --line:#E5E1D8;
-  --ink:#1B2E3D;
-  --muted:#6B7A85;
-  --blue:#33749E;
-  --blue-deep:#0F2843;
+  --line:#ECECEC;
+  --ink:#102A43;
+  --text:#444444;
+  --muted:#687783;
+  --blue:#163B65;
+  --blue-deep:#102A43;
   --blue-soft:#EAF1F6;
-  --orange:#C9792F;
+  --orange:#F58220;
   --whatsapp:#25D366;
+
+  --header-h:81px;
 
   --font-display:'Space Grotesk', sans-serif;
   --font-body:'Inter', sans-serif;

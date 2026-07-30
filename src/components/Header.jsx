@@ -16,10 +16,10 @@ export default function Header() {
     <header>
       <div className="nav">
         <NavLink to="/" className="logo" onClick={() => setOpen(false)}>
-          <img src="/logo.png" alt="ND Builtshine — Incubateur de solutions techniques" />
+          <img src="/logo.png" alt="ND Builtshine - Incubateur de solutions techniques" />
         </NavLink>
 
-        <nav className={`links ${open ? 'open' : ''}`}>
+        <nav className={`links ${open ? 'open' : ''}`} aria-label="Navigation principale">
           <ul>
             {NAV_ITEMS.map((item) => (
               <li key={item.to}>
@@ -40,8 +40,18 @@ export default function Header() {
           <NavLink to="/contact" className="btn hide-mobile">
             Demander un devis
           </NavLink>
-          <button className="menu-toggle" aria-label="Ouvrir le menu" onClick={() => setOpen((v) => !v)}>
-            {open ? '✕' : '☰'}
+          <button
+            className="menu-toggle"
+            type="button"
+            aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={open}
+            onClick={() => setOpen((value) => !value)}
+          >
+            <span className="menu-toggle__lines" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
           </button>
         </div>
       </div>
