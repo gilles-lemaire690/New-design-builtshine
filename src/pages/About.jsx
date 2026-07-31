@@ -1,13 +1,30 @@
 import { Link } from 'react-router-dom'
 import { TEAM, PARTNERS, VALUES } from '../data/company.js'
 import { usePrefersReducedMotion, useRevealAnimations, useSectionInView, CountUp } from '../hooks/useAnimations.jsx'
-import PageHero from '../components/PageHero.jsx'
 import './About.css'
 
 const NUMERIC_STATS = [
   { value: 120, suffix: '+', label: 'missions techniques structurées' },
   { value: 15, suffix: '+', label: 'années de pratique cumulée' },
   { value: 3, suffix: '', label: 'pôles d’expertise intégrés' },
+]
+
+const STORY_TIMELINE = [
+  {
+    year: '2018',
+    title: 'Genèse & Constat',
+    text: 'Naissance de ND Builtshine à Yaoundé suite au constat d’un déficit récurrent d’études d’exécution rigoureuses et adaptées aux contraintes géotechniques locales.',
+  },
+  {
+    year: '2021',
+    title: 'Modèle Incubateur',
+    text: 'Formulation d’un modèle hybride associant bureau d’études de précision et incubateur de talents d’ingénierie locale.',
+  },
+  {
+    year: '2024',
+    title: 'Expansion Régionale',
+    text: 'Structuration de 3 pôles d’expertise majeurs et déploiement de protocoles techniques d’échelle internationale à travers l’Afrique centrale.',
+  },
 ]
 
 function ValueIcon({ id }) {
@@ -56,14 +73,47 @@ export default function About() {
 
   return (
     <>
-      <PageHero
-        eyebrow="Notre identité"
-        title="La précision de l’ingénierie, au service d’un monde en construction."
-        description="ND Builtshine n’est pas qu’un cabinet d’exécution. Nous sommes un incubateur de solutions techniques, qui adapte les protocoles d’ingénierie avancés aux réalités structurelles et infrastructurelles du Cameroun et du continent africain."
-        image="/hero/site-1.jpg"
-        number="01"
-      />
+      {/* ===== 1. NOTRE IDENTITÉ — Header Éditorial & Distinctif ===== */}
+      <section className="about-identity" aria-labelledby="about-identity-title">
+        <div className="about-identity__container">
+          <div className="about-identity__content" data-reveal="up">
+            <div className="about-identity__badge">
+              <span className="about-identity__index">01</span>
+              <span className="eyebrow-line">Notre identité</span>
+            </div>
+            
+            <h1 id="about-identity-title" className="about-identity__title">
+              La précision de l’ingénierie, <br />
+              <span className="about-identity__title-highlight">au service d’un monde en construction.</span>
+            </h1>
 
+            <p className="about-identity__lead">
+              ND Builtshine n’est pas un simple cabinet d’exécution. Nous sommes un incubateur de solutions techniques avancées, conçu pour adapter les standards internationaux d'ingénierie aux réalités structurelles et climatiques de l'Afrique.
+            </p>
+
+            <blockquote className="about-identity__quote">
+              <p>« Penser l'infrastructure de demain exige d'allier l'exigence des normes mondiales à une compréhension fine du terrain local. »</p>
+              <cite>— Direction Technique ND Builtshine</cite>
+            </blockquote>
+          </div>
+
+          <div className="about-identity__media" data-reveal="image">
+            <div className="about-identity__frame">
+              <img 
+                src="/hero/site-1.jpg" 
+                alt="Chantier de construction d'infrastructure de haute précision dirigé par ND Builtshine" 
+                className="about-identity__img"
+              />
+              <div className="about-identity__caption-tag">
+                <span>Ingénierie de précision</span>
+                <strong>Cameroun &amp; Afrique Centrale</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== 2. NOTRE MÉTHODE — Le Modèle Incubateur ===== */}
       <section className="about-method section-panel" aria-labelledby="method-title">
         <div className="about-method__layout">
           <figure className="about-method__image" data-reveal="image">
@@ -71,7 +121,7 @@ export default function About() {
           </figure>
 
           <div className="about-method__card" data-reveal="up">
-            <span className="about-section-number" aria-hidden="true">01</span>
+            <span className="about-section-number" aria-hidden="true">02</span>
             <span className="eyebrow-line">Notre méthode</span>
             <h2 id="method-title">Le modèle incubateur</h2>
             <p>
@@ -93,6 +143,47 @@ export default function About() {
         </div>
       </section>
 
+      {/* ===== 3. NOTRE HISTOIRE — Récit & Trajectoire (Nouvelle Section) ===== */}
+      <section className="about-history section-panel" aria-labelledby="history-title">
+        <div className="about-section-heading about-section-heading--split" data-reveal="up">
+          <div>
+            <span className="eyebrow-line">Parcours &amp; Ambition</span>
+            <h2 id="history-title">Notre histoire</h2>
+          </div>
+          <p className="about-section-heading__aside">
+            De la vision initiale à la structuration d'un acteur majeur d'ingénierie technique en Afrique centrale.
+          </p>
+        </div>
+
+        <div className="about-history__layout">
+          <div className="about-history__narrative" data-reveal="up">
+            <h3>Pourquoi ND Builtshine existe</h3>
+            <p>
+              Face à la complexification des projets d'infrastructure en Afrique et aux pertes d'efficacité dues à des études mal adaptées aux sols et contextes locaux, ND Builtshine s'est imposé avec une conviction : <strong>rendre l'ingénierie technique irréprochable et totalement exploitable.</strong>
+            </p>
+            <p>
+              Nous avons construit notre réputation sur l'intransigeance du calcul, l'optimisation des matériaux et la capacitation des talents locaux.
+            </p>
+          </div>
+
+          <div className="about-history__timeline" data-reveal="up">
+            {STORY_TIMELINE.map((item, index) => (
+              <div className="history-event" key={item.year}>
+                <div className="history-event__marker">
+                  <span className="history-event__year">{item.year}</span>
+                  <span className="history-event__line" aria-hidden="true"></span>
+                </div>
+                <div className="history-event__content">
+                  <h4>{item.title}</h4>
+                  <p>{item.text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== 4. MISSION & VISION ===== */}
       <section className="about-mission" aria-labelledby="mission-title">
         <div className="about-mission__grid">
           <article className="about-mission__block" data-reveal="up">
@@ -116,6 +207,7 @@ export default function About() {
         </div>
       </section>
 
+      {/* ===== 5. NOTRE ÉQUIPE ===== */}
       <section className="about-team section-panel" aria-labelledby="team-title">
         <div className="about-section-heading about-section-heading--split" data-reveal="up">
           <div>
@@ -147,6 +239,7 @@ export default function About() {
         </div>
       </section>
 
+      {/* ===== 6. CHIFFRES CLÉS ===== */}
       <section className="about-stats" ref={statsRef} aria-label="Chiffres clés ND Builtshine">
         <div className="about-stats__inner">
           <div className="about-stats__intro" data-reveal="up">
@@ -171,6 +264,7 @@ export default function About() {
         </div>
       </section>
 
+      {/* ===== 7. VALEURS ===== */}
       <section className="about-values section-panel" aria-labelledby="values-title">
         <div className="about-section-heading" data-reveal="up">
           <span className="eyebrow-line">Nos valeurs</span>
@@ -190,6 +284,7 @@ export default function About() {
         </div>
       </section>
 
+      {/* ===== 8. PARTENAIRES & AGRÉMENTS ===== */}
       <section className="about-partners section-panel" aria-labelledby="partners-title">
         <div className="about-section-heading about-section-heading--center" data-reveal="up">
           <span className="eyebrow-line">Standards internationaux</span>
@@ -211,6 +306,7 @@ export default function About() {
         </div>
       </section>
 
+      {/* ===== 9. CTA FINAL ===== */}
       <section className="about-cta" aria-labelledby="about-cta-title">
         <div className="about-cta__content" data-reveal="up">
           <span className="eyebrow-line eyebrow-line--light">Travaillons ensemble</span>

@@ -1,4 +1,4 @@
-/* ===== ABOUT — shared section primitives ===== */
+/* ===== ABOUT — Shared Primitives & Layout ===== */
 .eyebrow-line {
   display: inline-flex;
   align-items: center;
@@ -50,7 +50,7 @@
 
 .about-section-heading--split {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   justify-content: space-between;
   gap: 28px;
 }
@@ -86,7 +86,139 @@
   line-height: 1.7;
 }
 
-/* ===== Méthode incubateur ===== */
+/* ===== 1. NOTRE IDENTITÉ (Refonte complète Hero -> Éditorial) ===== */
+.about-identity {
+  padding: 140px 44px 96px;
+  background: var(--off-white);
+  border-bottom: 1px solid var(--line);
+}
+
+.about-identity__container {
+  width: min(100%, 1240px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 64px;
+}
+
+.about-identity__badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.about-identity__index {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--blue-deep);
+  background: var(--blue-soft);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.about-identity__title {
+  font-size: 3.2rem;
+  line-height: 1.08;
+  color: var(--blue-deep);
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.about-identity__title-highlight {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.about-identity__lead {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text);
+  margin-bottom: 32px;
+  max-width: 620px;
+}
+
+.about-identity__quote {
+  position: relative;
+  padding-left: 20px;
+  border-left: 2px solid var(--orange);
+  margin: 0;
+}
+
+.about-identity__quote p {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.about-identity__quote cite {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--blue-deep);
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.about-identity__media {
+  position: relative;
+}
+
+.about-identity__frame {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(16, 42, 67, 0.14);
+  background: var(--blue-deep);
+}
+
+.about-identity__img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-identity__frame:hover .about-identity__img {
+  transform: scale(1.03);
+}
+
+.about-identity__caption-tag {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  padding: 16px 20px;
+  background: rgba(16, 42, 67, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.about-identity__caption-tag span {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--orange);
+}
+
+.about-identity__caption-tag strong {
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* ===== 2. MÉTHODE INCUBATEUR ===== */
 .about-method {
   background:
     linear-gradient(90deg, rgba(16, 42, 67, 0.04) 1px, transparent 1px),
@@ -174,7 +306,88 @@
   background: var(--orange);
 }
 
-/* ===== Mission & Vision ===== */
+/* ===== 3. NOTRE HISTOIRE (Nouvelle Section) ===== */
+.about-history {
+  background: #fff;
+  border-top: 1px solid var(--line);
+}
+
+.about-history__layout {
+  width: min(100%, 1240px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 64px;
+}
+
+.about-history__narrative h3 {
+  font-size: 1.8rem;
+  color: var(--blue-deep);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.about-history__narrative p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+
+.about-history__narrative strong {
+  color: var(--blue-deep);
+}
+
+.about-history__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+  padding-left: 8px;
+}
+
+.history-event {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.history-event__marker {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.history-event__year {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--orange);
+}
+
+.history-event__line {
+  width: 100%;
+  height: 1px;
+  background: var(--line);
+  margin-top: 12px;
+}
+
+.history-event__content h4 {
+  font-size: 1.15rem;
+  color: var(--blue-deep);
+  margin-bottom: 8px;
+}
+
+.history-event__content p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* ===== 4. MISSION & VISION ===== */
 .about-mission {
   padding: 96px 44px;
   background: linear-gradient(180deg, #102a43, #0b1d2e);
@@ -223,7 +436,7 @@
   line-height: 1.75;
 }
 
-/* ===== Équipe ===== */
+/* ===== 5. ÉQUIPE ===== */
 .about-team {
   background: #fff;
 }
@@ -316,7 +529,7 @@
   box-shadow: none;
 }
 
-/* ===== Chiffres clés ===== */
+/* ===== 6. CHIFFRES CLÉS ===== */
 .about-stats {
   padding: 96px 44px;
   background: var(--blue-deep);
@@ -371,7 +584,7 @@
   line-height: 1.5;
 }
 
-/* ===== Valeurs ===== */
+/* ===== 7. VALEURS ===== */
 .about-values {
   background: var(--off-white);
 }
@@ -439,7 +652,7 @@
   line-height: 1.65;
 }
 
-/* ===== Partenaires ===== */
+/* ===== 8. PARTENAIRES ===== */
 .about-partners {
   background: #fff;
 }
@@ -507,7 +720,7 @@
   line-height: 1.5;
 }
 
-/* ===== CTA final ===== */
+/* ===== 9. CTA FINAL ===== */
 .about-cta {
   position: relative;
   padding: 120px 44px;
@@ -546,8 +759,22 @@
   margin-bottom: 32px;
 }
 
-/* ===== Responsive ===== */
+/* ===== RESPONSIVE DISPOSITION & RESPIRATION ===== */
 @media (max-width: 1160px) {
+  .about-identity__container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-identity__img {
+    height: 440px;
+  }
+
+  .about-history__layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
   .about-method__card {
     margin-left: -40px;
     padding: 46px 40px;
@@ -564,6 +791,14 @@
 }
 
 @media (max-width: 940px) {
+  .about-identity {
+    padding: 100px 24px 64px;
+  }
+
+  .about-identity__title {
+    font-size: 2.5rem;
+  }
+
   .about-method__layout {
     grid-template-columns: 1fr;
   }
@@ -602,6 +837,14 @@
 }
 
 @media (max-width: 680px) {
+  .about-identity__title {
+    font-size: 2.1rem;
+  }
+
+  .about-identity__img {
+    height: 320px;
+  }
+
   .about-mission,
   .about-stats,
   .about-cta {
@@ -613,12 +856,10 @@
     padding: 32px 22px;
   }
 
-  .about-method__card h2 {
-    font-size: 2rem;
-  }
-
-  .about-section-heading h2 {
-    font-size: 2rem;
+  .about-method__card h2,
+  .about-section-heading h2,
+  .about-history__narrative h3 {
+    font-size: 1.8rem;
   }
 
   .about-mission__block {
@@ -637,5 +878,14 @@
 
   .about-cta h2 {
     font-size: 2rem;
+  }
+
+  .history-event {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .history-event__line {
+    display: none;
   }
 }
