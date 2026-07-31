@@ -1,0 +1,154 @@
+/* ===== PAGE HERO — Interior Pages ===== */
+.page-hero-immersive {
+  position: relative;
+  min-height: 56vh;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--blue-deep);
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+}
+
+.page-hero-immersive__bg,
+.page-hero-immersive__overlay,
+.page-hero-immersive__grid {
+  position: absolute;
+  inset: 0;
+}
+
+.page-hero-immersive__bg {
+  z-index: -3;
+}
+
+.page-hero-immersive__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+}
+
+.page-hero-immersive__overlay {
+  z-index: -2;
+  background:
+    linear-gradient(100deg, rgba(16, 42, 67, 0.94) 0%, rgba(16, 42, 67, 0.72) 50%, rgba(16, 42, 67, 0.4) 100%),
+    linear-gradient(180deg, rgba(16, 42, 67, 0.1) 0%, rgba(16, 42, 67, 0.7) 100%);
+}
+
+.page-hero-immersive__grid {
+  z-index: -1;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 30%, #000 70%, transparent 100%);
+}
+
+.page-hero-immersive__content {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 1240px);
+  margin: 0 auto;
+  padding: 140px 44px 80px;
+}
+
+.page-hero-immersive__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--orange);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.page-hero-immersive__eyebrow::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: currentColor;
+}
+
+.page-hero-immersive h1 {
+  color: #fff;
+  font-size: 4rem;
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  max-width: 780px;
+  margin-bottom: 20px;
+}
+
+.page-hero-immersive__desc {
+  max-width: 580px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.12rem;
+  line-height: 1.7;
+}
+
+.page-hero-immersive__number {
+  position: absolute;
+  right: 44px;
+  bottom: -24px;
+  color: rgba(255, 255, 255, 0.06);
+  font-family: var(--font-display);
+  font-size: 14rem;
+  font-weight: 700;
+  line-height: 0.75;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 1160px) {
+  .page-hero-immersive h1 {
+    font-size: 3.4rem;
+  }
+}
+
+@media (max-width: 940px) {
+  .page-hero-immersive {
+    min-height: 48vh;
+  }
+
+  .page-hero-immersive__content {
+    padding: 120px 28px 64px;
+  }
+
+  .page-hero-immersive h1 {
+    font-size: 2.8rem;
+  }
+
+  .page-hero-immersive__number {
+    font-size: 10rem;
+    right: 28px;
+  }
+}
+
+@media (max-width: 680px) {
+  .page-hero-immersive {
+    min-height: 44vh;
+  }
+
+  .page-hero-immersive__content {
+    padding: 100px 20px 54px;
+  }
+
+  .page-hero-immersive h1 {
+    font-size: 2.3rem;
+    line-height: 1.04;
+  }
+
+  .page-hero-immersive__desc {
+    font-size: 1rem;
+  }
+
+  .page-hero-immersive__number {
+    font-size: 7rem;
+    right: 20px;
+  }
+}
